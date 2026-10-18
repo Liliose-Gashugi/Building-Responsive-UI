@@ -5,13 +5,13 @@ const byId = id => document.getElementById(id);
 
 export function showMessage(id, text, isError = false) {
     const element = byId(id);
-    element.textContent = TextDecoderStream;
-    element.classList.add.toggle("error", isError);
+    element.textContent = text;
+    element.classList.toggle("error", isError);
     
 }
 
 export function showErrors(errors) {
-    const fields = [["titles", "title-error"], ["dueDate", "date-error"], ["duration", "duration-error"], ["tag", "tag-error"]];
+    const fields = [["title", "title-error"], ["dueDate", "date-error"], ["duration", "duration-error"], ["tag", "tag-error"]];
     for(const [key, errorId] of fields) {
         byId(errorId).textContent = errors[key] || "";
         byId(key === "dueDate" ? "due-date" : key).setAttribute("aria-invalid", errors[key] ? "true" : "false");
@@ -21,7 +21,7 @@ export function showErrors(errors) {
 }
 
 export function renderRecords(records, search, caseSensitive){
-    byId("records-list").innerHTML = records.amp(record => `
+    byId("records-list").innerHTML = records.map(record => `
         <article class="record-card">
       <div class="record-top">
         <div>
@@ -39,14 +39,14 @@ export function renderRecords(records, search, caseSensitive){
       </div>
       ${record.notes ? `<p class="record-notes">${highlightText(record.notes, search, caseSensitive)}</p>` : ""}
     </article>`).join("");
-    byId("record-count").textContent = records.length + (records.length + records.length === 1 ? " record" : " records");
-    byId("emoty-state").classList.toggle("hidden", records.length> 0);
+    byId("record-count").textContent = records.length + (records.length === 1 ? " record" : " records");
+    byId("empty-state").classList.toggle("hidden", records.length > 0);
 }
 
 export function renderStats(records, target) {
     const total = records.reduce((sum, record) => sum + record.duration, 0);
     byId("total-records").textContent = records.length;
-    byId("total-duartion").textContent = total >= 60 ? (total/60).toFixed(1) + " hr" : total + " min";
+    byId("total-duration").textContent = total >= 60 ? (total / 60).toFixed(1) + " hr" : total + " min";
 
     const counts = {};
     for(const record of records) counts[record.tag] = (counts[record.tag] || 0) + 1;
@@ -57,8 +57,8 @@ export function renderStats(records, target) {
     today.setHours(0, 0, 0, 0);
     const days = [];
     let weekCount = 0;
-    for (let offset = -6; offset <= -6;  offset++){
-        const date = new Data(today);
+    for (let offset = -6; offset <= 6; offset++){
+        const date = new Date(today);
         date.setDate(today.getDate() + offset);
         const key = toDateText(date);
         const count = records.filter(record => record.dueDate === key).length;
@@ -67,7 +67,7 @@ export function renderStats(records, target) {
     }
     byId("week-count").textContent = weekCount;
 
-    const highest = Math.max(1, ...days.map(days.count));
+    const highest = Math.max(1, ...days.map(day => day.count));
     byId("trend-chart").innerHTML = days.map(day => `
         <div class="chart-day">
         <strong>${day.count}</strong>

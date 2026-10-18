@@ -17,7 +17,7 @@
         </div>
     </header>
     <main id="main" class="container">
-        <section class="hero" aria-labelledby="hero=title">
+        <section class="hero" aria-labelledby="hero-title">
             <h1 id="hero-title">Make room for what matters.</h1>
             <p class="muted">Track assignments, events, and study sessions in one accessible place.</p>
         </section>
@@ -30,7 +30,7 @@
             <div class="stats-grid">
                 <article class="stat-card"><p>Total records</p><strong id="total-records">0</strong></article>
                 <article class="stat-card"><p>Planned time</p><strong id="total-duration">0 min</strong></article>
-                <article class="stat-card"><p>Top tag</p><strong id="total-tag">None yet</strong></article>
+                <article class="stat-card"><p>Top tag</p><strong id="top-tag">None yet</strong></article>
                 <article class="stat-card"><p>Due in 7 Days</p><strong id="week-count">0</strong></article>
             </div>
             <article class="chart-card"><h3>Last 7 days</h3><div id="trend-chart" class="trend-chart" role="img" aria-label="Records due on each of the last seven days"></div></article>
@@ -38,13 +38,13 @@
 
 
         <section id="planner" class="section" aria-labelledby="planner-title">
-            <div class="section-heading"><h2 id="planner-title">My planner</h2><span id="record-count" class="count-pill">O records</span></div>
+            <div class="section-heading"><h2 id="planner-title">My planner</h2><span id="record-count" class="count-pill">0 records</span></div>
             <div class="planner-layout">
                 <form id="record-form" class="panel form-panel" novalidate>
                     <h3 id="form-heading">Add a plan</h3>
                     <input type="hidden" id="record-id">
-                    <div class="field"><label for="title">Title</label><input type="text" name="dueDate" id="title" maxlength="100" placeholder="e.g Study for Python"><small class="field-error" id="title-error" role="status" aria-live="polite"></small></div>
-                    <div class="field"><label for="due-date">Due Date</label><input type="date" name="title" id="due-date"><small class="field-error" id="date-error" role="status" aria-live="polite"></small></div>
+                    <div class="field"><label for="title">Title</label><input type="text" name="title" id="title" maxlength="100" placeholder="e.g Study for Python"><small class="field-error" id="title-error" role="status" aria-live="polite"></small></div>
+                    <div class="field"><label for="due-date">Due Date</label><input type="date" name="dueDate" id="due-date"><small class="field-error" id="date-error" role="status" aria-live="polite"></small></div>
                     <div class="field-row">
                         <div class="field"><label for="duration">Duration (minutes)</label><input type="number" name="duration" id="duration" min="0" placeholder="60"><small class="field-error" id="duration-error" role="status" aria-live="polite"></small></div>
                         <div class="field"><label for="tag">Tag</label><input type="text" name="tag" id="tag" maxlength="30" placeholder="Study"><small class="field-error" id="tag-error" role="status" aria-live="polite"></small></div>
@@ -78,13 +78,13 @@
         </section>
 
 
-        <section id="settings" class="section" aria-labelledby="setting-title">
+        <section id="settings" class="section" aria-labelledby="settings-title">
             <div class="section-heading"> <h2 id="settings-title">Settings and data</h2></div>
             <div class="settings-grid">
                 <article class="panel">
                     <h3>Time target</h3>
-                    <form id="target-form" class="form-actions"><div class="field"> <label for="time-target">Target (minutes)</label><input id="time-target" type="number" min="0" value="600"</div><button class="button primary" type="submit">Save target</button></form>
-                    <div class="field"><label for="minutes-convert">Convert minutes to hours</label> <input id="minutes-convert" type="number" min="0" value="90"><p id="conversion-result" class="muted">90 minutes =1.50 hours</p></div>
+                    <form id="target-form" class="form-actions"><div class="field"> <label for="time-target">Target (minutes)</label><input id="time-target" type="number" min="0" value="600"></div></div><button class="button primary" type="submit">Save target</button></form>
+                    <div class="field"><label for="minutes-convert">Convert minutes to hours</label> <input id="minutes-convert" type="number" min="0" value="90"><p id="conversion-result" class="muted">90 minutes = 1.50 hours</p></div>
                 </article>
                 
                 <article class="panel">
@@ -101,8 +101,8 @@
         <section id="about" class="section" aria-labelledby="about-title">
             <div class="about-card">
                 <h2 id="about-title">About this project</h2>
-                <p>CampusPlan keeps academoc tasks and campus events in one place. Your data stays in this browser unless you decide to export it.</p>
-                <div class="contact-links"><a href="" target="_blank" rel="nonreferrer">Github</a><a href="mailto:l.gashugimu@alustudent.com">Email</a></div>
+                <p>CampusPlan keeps academic tasks and campus events in one place. Your data stays in this browser unless you decide to export it.</p>
+                <div class="contact-links"><a href="https://github.com/Liliose-Gashugi" target="_blank" rel="nonreferrer">Github</a><a href="mailto:l.gashugimu@alustudent.com">Email</a></div>
             </div>
         </section>
     </main>

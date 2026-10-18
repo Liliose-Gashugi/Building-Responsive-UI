@@ -35,7 +35,7 @@ export function highlightText(text, pattern, caseSensitive=false) {
     let last = 0;
     let match = regex.exec(value);
     while (match && match[0] !== "") {
-        output += escapeHtml(value.slice(last, match.index)) + "<mark>" + escapeHtml(match[0]) + "<mark>";
+        output += escapeHtml(value.slice(last, match.index)) + "<mark>" + escapeHtml(match[0]) + "</mark>";
         last = match.index + match[0].length;
         match = regex.exec(value);
         

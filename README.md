@@ -2,7 +2,9 @@
 
 CampusPlan is an accessible, responsive planner for campus tasks and events, built with semantic HTML, CSS, and vanilla JavaScript ES modules. 
 
-**Live site:** add your GitHub Pages URL here after deployment.
+**This is my website: https://liliose-gashugi.github.io/Building-Responsive-UI/**
+
+**This is the link to my demo video: https://www.loom.com/share/a1f6fe1226504dffba67fcc926ee4ef8**
 
 ## Features
 

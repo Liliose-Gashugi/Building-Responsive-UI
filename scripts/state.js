@@ -1,4 +1,4 @@
-import { loadRecords, saveRecords, loadSetting, saveSettings, loadSettings  } from "./storage.js";
+import { loadRecords, saveRecords, saveSettings, loadSettings } from "./storage.js";
 
 export const state = {
     records: loadRecords(),
