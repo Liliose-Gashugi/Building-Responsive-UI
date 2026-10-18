@@ -1,6 +1,6 @@
 :root{
     --ink: #2b1a21;
-    --muted: #2b1a21;
+    --muted: #6f1a21;
     --pink: #c2255c;
     --pink-dark: #9c1b49;
     --soft: #ffe8f0;
@@ -45,12 +45,12 @@ button, input, textarea, select{
     position: absolute;
     left: -999px;
 }
-.site.header{
+.site-header {
     position: sticky;
     top: 0;
-    z-index: 5;
-    padding: 10px;
-    background: #ffff;
+    z-index: 4;
+    background: #fff;
+    border-bottom: 1px solid var(--line);
 }
 .header-inner, .site-footer, .container{
     max-width: 1100px;
@@ -65,9 +65,9 @@ button, input, textarea, select{
     gap: 16px;
 }
 
-.site-footer{
+.site-footer {
     border-top: 1px solid var(--line);
-    columns: var(--muted);
+    color: var(--muted);
     font-size: .85rem;
 }
 .brand{
@@ -100,7 +100,7 @@ nav a{
 .section-heading{
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-evenly;
+    justify-content: space-between;
     align-items: center;
     gap: 16px;
     margin-bottom: 16px;
@@ -112,19 +112,23 @@ nav a{
     gap: 14px;
 }
 
-.start-card {
+.stat-card {
     flex: 1 1 200px;
 }
-.start-card, .chart-card, .panel, .record-card, .empty-state, .about-card, .test-result{
+.stat-card, .chart-card, .panel, .record-card, .empty-state, .about-card, .test-result{
     padding: 18px;
     background: #ffff;
     border: 1px solid var(--line);
     border-radius: 14px;
 }
-.start-card p{
+.stat-card p{
     margin: 0 0 4px;
     color: var(--muted);
     font-size: .88rem;
+}
+.stat-card strong {
+    display: block;
+    font-size: 1.6rem;
 }
 .chart-card{
     margin-top: 14px;
@@ -153,10 +157,10 @@ nav a{
     color: var(--muted);
     font-size: .75rem;
 }
-.planner-layout, .setting-grid{
+.planner-layout, .settings-grid{
     display: flex;
     flex-wrap: wrap;
-    grid-area: 20px;
+    gap: 20px;
     align-items: flex-start;
 }
 .form-panel{
@@ -325,19 +329,57 @@ mark {
 }
 
 @media (max-width: 1024px) {
-    .hero { padding-top: 35px; }
-    .records-area, .form-panel { flex-basis: 100%; }
+    .hero { 
+        padding-top: 35px; 
+    }
+    .records-area, .form-panel { 
+        flex-basis: 100%; 
+    }
   }
   @media (max-width: 768px) {
-    h1 { font-size: 2rem; }
-    .header-inner, .site-footer, .toolbar { flex-direction: column; align-items: flex-start; }
-    .stat-card { flex-basis: 100%; }
+    h1 { font-size: 2rem; 
+    }
+    .header-inner, .site-footer, .toolbar { 
+        flex-direction: column; 
+        align-items: flex-start; 
+    }
+    .stat-card { 
+        flex-basis: 100%; 
+    }
   }
   @media (max-width: 360px) {
-    .container, .header-inner, .site-footer { padding-inline: 12px; }
-    .field-row > .field, .toolbar > .field { flex-basis: 100%; }
-    .button, .small-button { width: 100%; }
+    .container, .header-inner, .site-footer { 
+        padding-inline: 12px; 
+    }
+    .field-row > .field, .toolbar > .field { 
+        flex-basis: 100%; 
+    }
+    .button, .small-button { 
+        width: 100%; 
+    }
   }
   @media (prefers-reduced-motion: reduce) {
-    * { animation: none !important; transition: none !important; }
+    * { 
+        animation: none !important; transition: none !important; 
+    }
   }
+
+  .skip-link:focus {
+    left: 10px;
+    top: 10px;
+    z-index: 5;
+    padding: 10px;
+    background: #fff;
+}
+
+@keyframes fade-in {
+    from {
+        opacity: 0;
+        transform: translateY(6px);
+    }
+
+    to {
+        opacity: 1;
+        transform: none;
+    }
+}
