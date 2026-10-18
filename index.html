@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="An accessible planner for campus tasks and events.">
+    <title>Campus Life Planner</title>
+    <link rel="stylesheet" href="/styles/styles.css">
+    <script type="module" src="/scripts/app.js"></script>
+</head>
+<body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="site-header">
+        <div class="header-inner">
+            <a class="brand" href="#main">Campus <span>Plan</span></a>
+            <nav aria-label="Main navigation"><a href="#dashboard">Dashboard</a><a href="#planner">Planner</a><a href="#settings">Settings</a><a href="#about">About</a></nav>
+        </div>
+    </header>
+    <main id="main" class="container">
+        <section class="hero" aria-labelledby="hero=title">
+            <h1 id="hero-title">Make room for what matters.</h1>
+            <p class="muted">Track assignments, events, and study sessions in one accessible place.</p>
+        </section>
+
+        <section id="dashboard" class="section" aria-labelledby="dashboard-title">
+            <div class="section-heading">
+                <h2 id="dashboard-title">Your Dashboard</h2>
+                <p id="cap-message" class="message" role="status" aria-live="polite"></p>
+            </div>
+            <div class="stats-grid">
+                <article class="stat-card"><p>Total records</p><strong id="total-records">0</strong></article>
+                <article class="stat-card"><p>Planned time</p><strong id="total-duration">0 min</strong></article>
+                <article class="stat-card"><p>Top tag</p><strong id="total-tag">None yet</strong></article>
+                <article class="stat-card"><p>Due in 7 Days</p><strong id="week-count">0</strong></article>
+            </div>
+            <article class="chart-card"><h3>Last 7 days</h3><div id="trend-chart" class="trend-chart" role="img" aria-label="Records due on each of the last seven days"></div></article>
+        </section>
+
+
+        <section id="planner" class="section" aria-labelledby="planner-title">
+            <div class="section-heading"><h2 id="planner-title">My planner</h2><span id="record-count" class="count-pill">O records</span></div>
+            <div class="planner-layout">
+                <form id="record-form" class="panel form-panel" novalidate>
+                    <h3 id="form-heading">Add a plan</h3>
+                    <input type="hidden" id="record-id">
+                    <div class="field"><label for="title">Title</label><input type="text" name="dueDate" id="title" maxlength="100" placeholder="e.g Study for Python"><small class="field-error" id="title-error" role="status" aria-live="polite"></small></div>
+                    <div class="field"><label for="due-date">Due Date</label><input type="date" name="title" id="due-date"><small class="field-error" id="date-error" role="status" aria-live="polite"></small></div>
+                    <div class="field-row">
+                        <div class="field"><label for="duration">Duration (minutes)</label><input type="number" name="duration" id="duration" min="0" placeholder="60"><small class="field-error" id="duration-error" role="status" aria-live="polite"></small></div>
+                        <div class="field"><label for="tag">Tag</label><input type="text" name="tag" id="tag" maxlength="30" placeholder="Study"><small class="field-error" id="tag-error" role="status" aria-live="polite"></small></div>
+                    </div>
+                    <div class="field"><label for="notes">Notes (optional)</label><textarea name="notes" id="notes" rows="3" maxlength="500" placeholder="Room number or a time like 09:30"></textarea></div>
+                    <div class="form-actions"><button class="button primary" type="submit" id="save-button">Add to planner</button><button class="button hidden" type="button" id="cancel-edit">Cancel Edit</button></div>
+                    <p id="form-message" class="message" role="status" aria-live="polite"></p>
+                </form>
+
+                <div class="records-area">
+                    <div class="toolbar">
+                        <div class="field"><label for="search">Search with regex</label><input type="search" id="search" placeholder="e.g. study|exam"></div>
+                        <label for="case-sensitive" class="check-label"><input type="checkbox" id="case-sensitive">Case sensitive</label>
+                    </div>
+                    <div class="sort-row">
+                        <label for="sort-by">Sort by</label>
+                        <select id="sort-by">
+                            <option value="date-asc">Due Date (earliest)</option>
+                            <option value="date-desc">Due Date (latest)</option>
+                            <option value="title-asc">Title (A-Z)</option>
+                            <option value="title-desc">Title (Z-A)</option>
+                            <option value="duration-asc">Duration(low-high)</option>
+                            <option value="duration-desc">Duration(high-low)</option>
+                        </select>
+                    </div>
+                    <p id="search-message" class="message" role="status" aria-live="polite">Search accepts regular expressions.</p>
+                    <div class="records-list" id="records-list"></div>
+                    <div class="empty-state" id="empty-state"><h3>No plans yet</h3><p class="muted">Add your first task or event using the form.</p></div>
+                </div>
+            </div>
+        </section>
+
+
+        <section id="settings" class="section" aria-labelledby="setting-title">
+            <div class="section-heading"> <h2 id="settings-title">Settings and data</h2></div>
+            <div class="settings-grid">
+                <article class="panel">
+                    <h3>Time target</h3>
+                    <form id="target-form" class="form-actions"><div class="field"> <label for="time-target">Target (minutes)</label><input id="time-target" type="number" min="0" value="600"</div><button class="button primary" type="submit">Save target</button></form>
+                    <div class="field"><label for="minutes-convert">Convert minutes to hours</label> <input id="minutes-convert" type="number" min="0" value="90"><p id="conversion-result" class="muted">90 minutes =1.50 hours</p></div>
+                </article>
+                
+                <article class="panel">
+                    <h3>Backup your planner</h3>
+                    <p class="muted">Export your records as JSON or import a validated backup</p>
+                    <div class="data-actions"><button id="export-button" class="button" type="button">Export JSON</button><label class="button" for="import-file">Import JSON</label><input id="import-file" type="file" accept="application/json,.json" class="visually-hidden"></div>
+                    <p id="data-message" class="message" role="status" aria-live="polite"></p>
+                    <button id="reset-button" class="text-button" type="button">Restore starter records</button>
+                </article>
+            </div>
+        </section>
+
+
+        <section id="about" class="section" aria-labelledby="about-title">
+            <div class="about-card">
+                <h2 id="about-title">About this project</h2>
+                <p>CampusPlan keeps academoc tasks and campus events in one place. Your data stays in this browser unless you decide to export it.</p>
+                <div class="contact-links"><a href="" target="_blank" rel="nonreferrer">Github</a><a href="mailto:l.gashugimu@alustudent.com">Email</a></div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer"> <p>CampusPlan . 2026</p><a href="#main"> Back to the Top</a></footer>
+</body>
+</html>
