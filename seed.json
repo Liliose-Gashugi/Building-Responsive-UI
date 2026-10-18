@@ -1,0 +1,122 @@
+[
+    {
+      "id": "rec_seed_01",
+      "title": "Review lecture notes",
+      "dueDate": "2026-10-14",
+      "duration": 45,
+      "tag": "Study",
+      "notes": "Focus on chapter 3.",
+      "createdAt": "2026-10-01T08:00:00.000Z",
+      "updatedAt": "2026-10-01T08:00:00.000Z"
+    },
+    {
+      "id": "rec_seed_02",
+      "title": "Submit project draft",
+      "dueDate": "2026-10-15",
+      "duration": 120,
+      "tag": "Assignment",
+      "notes": "Upload the first draft before class.",
+      "createdAt": "2026-10-02T08:00:00.000Z",
+      "updatedAt": "2026-10-02T08:00:00.000Z"
+    },
+    {
+      "id": "rec_seed_03",
+      "title": "Meet study group",
+      "dueDate": "2026-10-16",
+      "duration": 60,
+      "tag": "Meeting",
+      "notes": "Library room 2 at 09:30.",
+      "createdAt": "2026-10-03T08:00:00.000Z",
+      "updatedAt": "2026-10-03T08:00:00.000Z"
+    },
+    {
+      "id": "rec_seed_04",
+      "title": "Attend coding workshop",
+      "dueDate": "2026-10-17",
+      "duration": 90,
+      "tag": "Event",
+      "notes": "Bring laptop and charger.",
+      "createdAt": "2026-10-04T08:00:00.000Z",
+      "updatedAt": "2026-10-04T08:00:00.000Z"
+    },
+    {
+      "id": "rec_seed_05",
+      "title": "Read research paper",
+      "dueDate": "2026-10-18",
+      "duration": 30,
+      "tag": "Study",
+      "notes": "Write down three questions.",
+      "createdAt": "2026-10-05T08:00:00.000Z",
+      "updatedAt": "2026-10-05T08:00:00.000Z"
+    },
+    {
+      "id": "rec_seed_06",
+      "title": "Email course tutor",
+      "dueDate": "2026-10-20",
+      "duration": 15,
+      "tag": "Admin",
+      "notes": "Ask about office hours.",
+      "createdAt": "2026-10-06T08:00:00.000Z",
+      "updatedAt": "2026-10-06T08:00:00.000Z"
+    },
+    {
+      "id": "rec_seed_07",
+      "title": "Prepare presentation",
+      "dueDate": "2026-10-22",
+      "duration": 180,
+      "tag": "Assignment",
+      "notes": "Use 5 slides and include examples.",
+      "createdAt": "2026-10-07T08:00:00.000Z",
+      "updatedAt": "2026-10-07T08:00:00.000Z"
+    },
+    {
+      "id": "rec_seed_08",
+      "title": "Campus club meetup",
+      "dueDate": "2026-10-24",
+      "duration": 75,
+      "tag": "Event",
+      "notes": "Meet outside the student centre.",
+      "createdAt": "2026-10-08T08:00:00.000Z",
+      "updatedAt": "2026-10-08T08:00:00.000Z"
+    },
+    {
+      "id": "rec_seed_09",
+      "title": "Plan weekly schedule",
+      "dueDate": "2026-10-26",
+      "duration": 0,
+      "tag": "Planning",
+      "notes": "Keep time open for rest.",
+      "createdAt": "2026-10-09T08:00:00.000Z",
+      "updatedAt": "2026-10-09T08:00:00.000Z"
+    },
+    {
+      "id": "rec_seed_10",
+      "title": "Practice regex patterns",
+      "dueDate": "2026-10-29",
+      "duration": 2400,
+      "tag": "Study",
+      "notes": "Try pattern \\\\b\\\\d{2}:\\\\d{2}\\\\b and test 09:30.",
+      "createdAt": "2026-10-10T08:00:00.000Z",
+      "updatedAt": "2026-10-10T08:00:00.000Z"
+    },
+    {
+      "id": "rec_seed_11",
+      "title": "Book library desk",
+      "dueDate": "2026-11-01",
+      "duration": 20,
+      "tag": "Admin",
+      "notes": "Check availability for the weekend.",
+      "createdAt": "2026-10-11T08:00:00.000Z",
+      "updatedAt": "2026-10-11T08:00:00.000Z"
+    },
+    {
+      "id": "rec_seed_12",
+      "title": "Final exam revision",
+      "dueDate": "2026-11-03",
+      "duration": 360,
+      "tag": "Study",
+      "notes": "Review practice questions.",
+      "createdAt": "2026-10-12T08:00:00.000Z",
+      "updatedAt": "2026-10-12T08:00:00.000Z"
+    }
+  ]
